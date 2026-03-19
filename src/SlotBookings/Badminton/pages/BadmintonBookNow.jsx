@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,48 +7,30 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-} from 'react-native'
-import Header from '../../../components/Header'
-
-const sports = ['Cricket', 'Football', 'Badminton']
+} from 'react-native';
+import Header from '../../../components/Header';
+import Colors from '../../../components/Colors';
+import Footer from '../../../components/Footer';
+const sports = ['Badminton'];
 
 const courts = [
   {
     id: '1',
-    name: 'Palace Badminton Arena',
-    location: 'Badh Chok, Bela',
+    name: '99GSports',
+    location: 'Ground Floor,Ramaji Complex,Memko More,Dhanbad,Jharkhand',
+
     distance: '2.5',
     rating: '4.4',
-    price: '300',
+    price: '2000',
     image: require('../../../assets/slider1.jpg'),
     action: 'BOOK',
   },
-  {
-    id: '2',
-    name: 'Royal Indoor Court',
-    location: 'Ayodhya Road',
-    distance: '5.1',
-    rating: '4.6',
-    price: '400',
-    image: require('../../../assets/slider1.jpg'),
-    action: 'BOOK',
-  },
-  {
-    id: '3',
-    name: 'Skylark Sports Arena',
-    location: 'Mini Bypass',
-    distance: '8.3',
-    rating: '4.2',
-    price: '350',
-    image: require('../../../assets/slider1.jpg'),
-    action: 'CALL',
-  },
-]
+];
 
 const BadmintonBookNow = ({ navigation }) => {
-  const [selectedSport, setSelectedSport] = useState('Badminton')
+  const [selectedSport, setSelectedSport] = useState('Badminton');
 
-  const renderSport = (sport) => (
+  const renderSport = sport => (
     <TouchableOpacity
       key={sport}
       style={[
@@ -66,7 +48,7 @@ const BadmintonBookNow = ({ navigation }) => {
         {sport}
       </Text>
     </TouchableOpacity>
-  )
+  );
 
   const renderCourt = ({ item }) => (
     <View style={styles.card}>
@@ -77,53 +59,51 @@ const BadmintonBookNow = ({ navigation }) => {
           <Text style={styles.courtName} numberOfLines={1}>
             {item.name}
           </Text>
-          <Text style={styles.heart}>♡</Text>
+          {/* <Text style={styles.heart}>♡</Text> */}
         </View>
 
         <Text style={styles.location}>{item.location}</Text>
 
-        <View style={styles.infoRow}>
+        {/* <View style={styles.infoRow}>
           <Text style={styles.infoText}>📍 {item.distance} km</Text>
           <Text style={styles.infoText}>⭐ {item.rating}</Text>
-        </View>
+        </View> */}
 
         <View style={styles.bottomRow}>
-          <Text style={styles.price}>₹ {item.price}/hr</Text>
+          {/* <Text style={styles.price}>₹ {item.price}/hr</Text> */}
 
           <TouchableOpacity
             style={styles.bookBtn}
-            onPress={() => navigation.navigate('BookingDetails', { data: item })}
+            onPress={() => navigation.navigate('SlotBooking', { data: item })}
           >
             <Text style={styles.bookText}>{item.action}</Text>
           </TouchableOpacity>
         </View>
       </View>
     </View>
-  )
+  );
 
   return (
     <>
       <Header title="Select Sport" />
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-        
         {/* SPORT FILTER */}
-        <View style={styles.sportRow}>
-          {sports.map(renderSport)}
-        </View>
+        <View style={styles.sportRow}>{sports.map(renderSport)}</View>
 
         {/* COURT LIST */}
         <FlatList
           data={courts}
-          keyExtractor={(item) => item.id}
+          keyExtractor={item => item.id}
           renderItem={renderCourt}
           scrollEnabled={false}
         />
       </ScrollView>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default BadmintonBookNow
+export default BadmintonBookNow;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -163,6 +143,8 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     padding: 8,
     elevation: 3,
+    borderWidth: 1,
+    borderColor: Colors.accent,
   },
   cardImage: {
     width: 110,
@@ -174,13 +156,11 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     justifyContent: 'space-between',
   },
-
   rowBetween: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-
   courtName: {
     fontSize: 16,
     fontWeight: 'bold',
@@ -210,18 +190,19 @@ const styles = StyleSheet.create({
 
   bottomRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end', // 👉 push button to right
     alignItems: 'center',
+    marginTop: 8,
   },
 
   price: {
     fontSize: 15,
     fontWeight: 'bold',
-    color: '#1b8f3a',
+    color: Colors.bookNow,
   },
 
   bookBtn: {
-    backgroundColor: '#1b8f3a',
+    backgroundColor: Colors.bookNow,
     paddingHorizontal: 18,
     paddingVertical: 6,
     borderRadius: 20,
@@ -232,4 +213,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 13,
   },
-})
+});

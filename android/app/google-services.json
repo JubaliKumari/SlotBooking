@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "463638625782",
+    "project_id": "gsports-aba99",
+    "storage_bucket": "gsports-aba99.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463638625782:android:902d0bc42b929519229bd7",
+        "android_client_info": {
+          "package_name": "com.badmintonslotbooking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463638625782-rv2p5mc00e2bltpq1n9lrko637f6qep0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.badmintonslotbooking",
+            "certificate_hash": "b929e58b7d3ecb47568015c90f4afe7e6e6250ed"
+          }
+        },
+        {
+          "client_id": "463638625782-q5qnqcb1cufqds3qeo2am20d9irg0a8g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXUPsaKK8ZZEqFjtFnB2yiHWgjZF1pKis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463638625782-q5qnqcb1cufqds3qeo2am20d9irg0a8g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
